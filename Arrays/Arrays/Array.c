@@ -30,6 +30,9 @@ void initList(PList pdst, unsigned int elemsize)//初始化结构体
 		pdst->elemsize = elemsize;//每个元素的字节
 	}
 }
+   
+
+
 
 
 
