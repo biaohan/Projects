@@ -17,21 +17,29 @@ typedef struct List
 	unsigned int listsize;	//表长度
 } List, *PList;
 
+
+
 /*
 	初始化表
-	PList	目标表
+	PList	目标表 
 	unsigned int	集合元素大小，sizeof(TYPE)>0
 	return void
 */
 void initList(PList, unsigned int);
 
+
+
 /*
 	表尾部插入元素
 	PList	目标表
-	void*	插入元素首地址
+	void*	   
 	return	true:成功，false:失败
 */
 bool insert(PList, void *);
+
+
+
+
 /*
 	表任意位置插入
 	PList	目标表
@@ -40,6 +48,12 @@ bool insert(PList, void *);
 	return	true:成功，false:失败
 */
 bool insertByIndex(PList, unsigned int, void *);
+
+
+
+
+
+
 /*
 	插入一个数组
 	PList	目标表
@@ -50,6 +64,11 @@ bool insertByIndex(PList, unsigned int, void *);
 */
 bool insertByArray(PList, unsigned int, void *, unsigned int);
 
+
+
+
+
+
 /*
 	打印表元素
 	PList	目标表
@@ -57,7 +76,10 @@ bool insertByArray(PList, unsigned int, void *, unsigned int);
 	return
 */
 void printList(PList, void (*)(void*));
-int compare(PList, );
+int compare(PList, unsigned int);
+
+
+
 /*
 	从前向后查询元素
 	PList	目标表
@@ -65,6 +87,8 @@ int compare(PList, );
 	return	返回元素下标
 */
 int indexOf(PList, void *);
+
+
 
 /*
 	从后向前查询元素

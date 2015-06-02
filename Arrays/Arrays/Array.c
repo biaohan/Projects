@@ -1,5 +1,7 @@
 #define  _CRT_SECURE_NO_WARNINGS
 #include"Array.h"
+#include<stdio.h>
+#include<stdlib.h>
 #include<malloc.h>
 #include<memory.h>
 
@@ -9,21 +11,27 @@
 	unsigned int	集合元素大小，sizeof(TYPE)>0
 	return void
 */
-void initList(PList pdst, unsigned int elemsize)
+void initList(PList pdst, unsigned int elemsize)//初始化结构体
 {
-	assert(pdst != NULL&&elemsize>0);
-	if (NULL != pdst && 0 < elemsize)
+	if (pdst == NULL || elemsize<=0)
 	{
-		pdst->buffer = malloc(elemsize * LIST_ININT_SIZE);
-		if (NULL == pdst->buffer)
+		printf("pdst不等于null且elemsize必须大于零");
+		abort();
+	}
+	else
+	{
+		pdst->buffer = malloc(elemsize * LIST_ININT_SIZE);//开辟内存,首先开辟100字节
+		if (NULL == pdst->buffer)//开辟内存失败
 		{
-			assert(pdst->buffer!= NULL);
+			
 		}
-		pdst->length = 0;
-		pdst->listsize = LIST_ININT_SIZE;
-		pdst->elemsize = elemsize;
+		pdst->length = 0;//刚开始的时候,没有任何元素,此时为0
+		pdst->listsize = LIST_ININT_SIZE;//开辟元素的个数
+		pdst->elemsize = elemsize;//每个元素的字节
 	}
 }
+
+
 
 
 
@@ -33,10 +41,10 @@ void initList(PList pdst, unsigned int elemsize)
 	void *	插入元素首地址
 	return	true:成功，false:失败
 */
-bool insert(PList pdst, void * pelem) 
+bool insert(PList pdst, void * pelem) //结构体数组尾部插入元素
 {
 	
-	if (NULL == pdst) 
+	if (NULL == pdst) //这个数组为空时
 	{
 		assert(pdst != NULL);
 	}
@@ -48,6 +56,10 @@ bool insert(PList pdst, void * pelem)
 	
 	return true;
 }
+
+
+
+
 
 /*
 	表任意位置插入
@@ -190,27 +202,19 @@ int indexOf(PList pdst, void * pel)
 	void*	搜索元素首地址
 	return	返回元素下标
 */
-//int indexLastIndexOf(PList  , void *) 
-//{
-//
-//}
+int indexLastIndexOf(PList wang, void *fang)
+{
+
+}
 
 
 #include<locale.h>
 
 int main() {
 	setlocale(LC_ALL, "zh-CN");
-	List list;
-	initList(&list, sizeof(csdn));
-	csdn c1;
-	initCsdn(&c1, 1, L"王芳", L"王芳123", L"王芳123321");
-
-	insert(&list, &c1);
 	
-	insert(&list, &c1);
 
-	insert(&list, &c1);
 
-	char a[10] = { 'd','e','f','g','h','j','k','l','m','n' };
+
 	return 0;
 }
